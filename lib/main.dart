@@ -14,17 +14,17 @@ final _router = GoRouter(
     GoRoute(
       name: 'gallery',
       path: '/gallery',
-      builder: (context, state) => PokedexGalleryScreen(),
+      builder: (context, state) => const PokedexGalleryScreen(),
     ),
     GoRoute(
       name: 'captured',
       path: '/captured',
-      builder: (context, state) => CapturedScreen(),
+      builder: (context, state) => const CapturedScreen(),
     ),
     GoRoute(
       name: 'pokemonDetails',
-      path: '/pokemonDetails',
-      builder: (context, state) => PokemonDetailsScreen(),
+      path: '/pokemonDetails/:id',
+      builder: (context, state) => const PokemonDetailsScreen(),
     ),
   ],
 );
@@ -38,12 +38,6 @@ class Pokedex extends StatelessWidget {
       routerConfig: _router,
       title: 'Pokédex Code Challenge',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.red,
-        ),
-      ),
     );
   }
 }

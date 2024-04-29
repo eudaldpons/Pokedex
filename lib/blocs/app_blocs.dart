@@ -10,8 +10,8 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     on<LoadPokemonEvent>((event, emit) async {
       emit(PokemonListLoadingState());
       try {
-        final users = await _pokemonRepository.getPokemons();
-        emit(PokemonListLoadedState(users));
+        final pokemons = await _pokemonRepository.getPokemons();
+        emit(PokemonListLoadedState(pokemons));
       } catch (e) {
         emit(PokemonListErrorState(e.toString()));
       }

@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 class Pokemon {
   String id;
   String name;
@@ -18,11 +16,23 @@ class Pokemon {
   });
 
   Pokemon.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        name = json['name'],
+      : id = json['id'].toString(),
+        name = json['name'].toString(),
         imageUrl =
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${json['id']}.png",
-        height = json['height'],
-        weight = json['weight'],
-        types = json['types'].cast<String>();
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${json['id'].toString()}.png",
+        height = '',
+        weight = json['weight'].toString(),
+        types = json['types'].map<String>((type) {
+          return type['type']['name'].toString();
+        }).toList() {
+    id = json['id'].toString();
+    name = json['name'].toString();
+    imageUrl =
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${json['id'].toString()}.png";
+    height = json['height'].toString();
+    weight = json['weight'].toString();
+    types = json['types'].map<String>((type) {
+      return type['type']['name'].toString();
+    }).toList();
+  }
 }

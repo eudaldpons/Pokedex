@@ -1,40 +1,37 @@
 import 'package:flutter/material.dart';
 
 class AppStyles {
-  static final ButtonStyle selectedFilter = OutlinedButton.styleFrom(
-    backgroundColor: Colors.grey[100],
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10))),
-    side: const BorderSide(color: Colors.white),
-  );
-
-  static final ButtonStyle unselectedFilter = OutlinedButton.styleFrom(
-    backgroundColor: Colors.grey[100],
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10))),
-    side: const BorderSide(color: Color(0xFFFCA424)),
-  );
-
-  //Paragraph for widgets expanded
-  static const TextStyle paragraph = TextStyle(
-      height: 1.4,
+  static const TextStyle titleGallery = TextStyle(
       color: Color(0xff464646),
-      fontSize: 15.0,
+      fontSize: 30.0,
+      fontWeight: FontWeight.bold,
       fontFamily: "SanFrancisco");
 
-  //Paragraph for widgets expanded
-  static const TextStyle onBoarding = TextStyle(
+  static const TextStyle galleryPokemonInfoSubtitle = TextStyle(
       color: Colors.black,
       fontFamily: 'SanFrancisco',
       fontWeight: FontWeight.bold,
-      fontSize: 30);
+      fontSize: 12);
+
+  static TextStyle galleryPokemonId = TextStyle(
+      color: Colors.grey.shade700,
+      fontFamily: 'SanFrancisco',
+      fontWeight: FontWeight.bold,
+      fontSize: 20);
 
   //Paragraph for widgets expanded
-  static const TextStyle onBoardingSubtitle = TextStyle(
+  static const TextStyle galleryPokemonName = TextStyle(
       color: Colors.black,
       fontFamily: 'SanFrancisco',
       fontWeight: FontWeight.bold,
-      fontSize: 30);
+      fontSize: 25);
+
+  //Paragraph for widgets expanded
+  static const TextStyle galleryPokemonInfo = TextStyle(
+      color: Colors.black,
+      fontFamily: 'SanFrancisco',
+      fontWeight: FontWeight.bold,
+      fontSize: 20);
 
   //Style for text in a subparagraph for widgets expanded
   static const TextStyle subparagraph = TextStyle(
