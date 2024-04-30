@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppStyles {
   static const TextStyle titleGallery = TextStyle(
-      color: Color(0xff464646),
-      fontSize: 30.0,
+      color: Colors.black,
+      fontSize: 40.0,
       fontWeight: FontWeight.bold,
       fontFamily: "SanFrancisco");
+
+  static const TextStyle subtitleGallery = TextStyle(
+      color: Color(0xff464646),
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      fontFamily: "SanFrancisco");
+
+  static const TextStyle searchText = TextStyle(
+      color: Color(0xff464646), fontSize: 16.0, fontFamily: "SanFrancisco");
 
   static const TextStyle galleryPokemonInfoSubtitle = TextStyle(
       color: Colors.black,
@@ -18,6 +27,12 @@ class AppStyles {
       fontFamily: 'SanFrancisco',
       fontWeight: FontWeight.bold,
       fontSize: 20);
+
+  static TextStyle detailsPokemonId = const TextStyle(
+      color: Colors.black,
+      fontFamily: 'SanFrancisco',
+      fontWeight: FontWeight.bold,
+      fontSize: 25);
 
   //Paragraph for widgets expanded
   static const TextStyle galleryPokemonName = TextStyle(

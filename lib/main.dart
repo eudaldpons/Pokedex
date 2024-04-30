@@ -1,43 +1,41 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/screens/01_gallery/gallery.dart';
-import 'package:flutter_pokedex/screens/02_captured/captured.dart';
-import 'package:flutter_pokedex/screens/pokemon_details.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pokedex/blocs/theme/cubit/theme_cubit.dart';
+import 'package:flutter_pokedex/models/pokemon.dart';
+import 'package:flutter_pokedex/routes/routes.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
-  runApp(const Pokedex());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getTemporaryDirectory(),
+  );
+  await Hive.initFlutter();
+  Hive.registerAdapter(PokemonAdapter());
+  await Hive.openBox<Pokemon>('captured_pokemon');
+  runApp(MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => ThemeCubit())],
+      child: const Pokedex()));
 }
-
-final _router = GoRouter(
-  initialLocation: '/gallery',
-  routes: [
-    GoRoute(
-      name: 'gallery',
-      path: '/gallery',
-      builder: (context, state) => const PokedexGalleryScreen(),
-    ),
-    GoRoute(
-      name: 'captured',
-      path: '/captured',
-      builder: (context, state) => const CapturedScreen(),
-    ),
-    GoRoute(
-      name: 'pokemonDetails',
-      path: '/pokemonDetails/:id',
-      builder: (context, state) => const PokemonDetailsScreen(),
-    ),
-  ],
-);
 
 class Pokedex extends StatelessWidget {
   const Pokedex({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router,
-      title: 'Pokédex Code Challenge',
-      debugShowCheckedModeBanner: false,
+    return BlocBuilder<ThemeCubit, ThemeData>(
+      builder: (context, themeData) {
+        return MaterialApp.router(
+          theme: themeData,
+          routerConfig: AppRoutes.router,
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

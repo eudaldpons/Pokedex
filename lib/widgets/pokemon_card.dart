@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_pokedex/models/pokemon_model.dart';
+import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/style/app_styles.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,12 +11,11 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () => context.goNamed('/pokemonDetails'),
+        onTap: () => context.go('/gallery/pokemonDetails', extra: pokemon),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
+          child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.52,
-              color: Colors.yellow,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -30,7 +28,7 @@ class PokemonCard extends StatelessWidget {
                       padding: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * 0.11),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.secondary,
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Column(
@@ -39,13 +37,13 @@ class PokemonCard extends StatelessWidget {
                               pokemon.name[0].toUpperCase() +
                                   pokemon.name.substring(1),
                               style: AppStyles.galleryPokemonName),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 15),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Height',
                                     style: AppStyles.galleryPokemonInfoSubtitle,
                                   ),
@@ -54,7 +52,7 @@ class PokemonCard extends StatelessWidget {
                               ),
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Weight',
                                     style: AppStyles.galleryPokemonInfoSubtitle,
                                   ),
@@ -63,7 +61,7 @@ class PokemonCard extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
                             "#${pokemon.id.padLeft(3, '0')}",
                             style: AppStyles.galleryPokemonId,
@@ -83,7 +81,11 @@ class PokemonCard extends StatelessWidget {
                           backgroundColor: Colors.black,
                         ),
                         onPressed: () {},
-                        child: Text('Capture'),
+                        child: Text(
+                          'Capture',
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                        ),
                       ))
                 ],
               )),

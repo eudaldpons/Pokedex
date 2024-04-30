@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_pokedex/models/pokemon_model.dart';
+import 'package:flutter_pokedex/models/pokemon.dart';
 
 class PokemonRepository {
   String pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0';

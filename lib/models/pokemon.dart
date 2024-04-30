@@ -1,9 +1,25 @@
+import 'package:hive/hive.dart';
+
+part 'pokemon.g.dart';
+
+@HiveType(typeId: 0)
 class Pokemon {
+  @HiveField(0)
   String id;
+
+  @HiveField(1)
   String name;
+
+  @HiveField(2)
   String imageUrl;
+
+  @HiveField(3)
   String height;
+
+  @HiveField(4)
   String weight;
+
+  @HiveField(5)
   List<String> types;
 
   Pokemon({
