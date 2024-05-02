@@ -1,15 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:go_router/go_router.dart';
 
 class PokemonCaptured extends StatelessWidget {
-  const PokemonCaptured(
-      {super.key, required this.pokemon, required this.isCaptured});
+  const PokemonCaptured({super.key, required this.pokemon});
 
   final Pokemon pokemon;
-  final bool isCaptured;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,7 +17,6 @@ class PokemonCaptured extends StatelessWidget {
             fit: BoxFit.cover,
             child: CachedNetworkImage(
               imageUrl: pokemon.imageUrl,
-              color: isCaptured ? null : Colors.grey,
             ),
           ),
         ));

@@ -33,3 +33,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/error.png
+    - assets/images/poke.png
+
+  fonts:
+    - family: SanFrancisco
+      fonts:
+        - asset: assets/fonts/SF-Pro.ttf

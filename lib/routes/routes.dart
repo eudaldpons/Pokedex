@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/screens/01_gallery/gallery.dart';
 import 'package:flutter_pokedex/screens/02_captured/captured.dart';
@@ -11,20 +12,51 @@ abstract class AppRoutes {
       GoRoute(
         name: 'gallery',
         path: '/gallery',
-        builder: (context, state) => const PokedexGalleryScreen(),
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const PokedexGalleryScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0, -1),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
         routes: [
           GoRoute(
-              path: 'pokemonDetails',
-              builder: (context, state) {
-                final pokemon = state.extra as Pokemon;
-                return PokemonDetailsScreen(pokemon: pokemon);
-              }),
+            path: 'pokemonDetails',
+            builder: (context, state) {
+              final pokemon = state.extra as Pokemon;
+              return PokemonDetailsScreen(pokemon: pokemon);
+            },
+          ),
         ],
       ),
       GoRoute(
         name: 'captured',
         path: '/captured',
-        builder: (context, state) => const CapturedScreen(),
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const CapturedScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0, 1),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
         routes: [
           GoRoute(
               path: 'pokemonDetails',

@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pokedex/blocs/app_blocs.dart';
+import 'package:flutter_pokedex/blocs/app_events.dart';
 import 'package:flutter_pokedex/blocs/theme/cubit/theme_cubit.dart';
+import 'package:flutter_pokedex/data/pokeapi.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/routes/routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -18,9 +21,12 @@ Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PokemonAdapter());
   await Hive.openBox<Pokemon>('captured_pokemon');
-  runApp(MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => ThemeCubit())],
-      child: const Pokedex()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (context) => ThemeCubit()),
+    BlocProvider<PokemonBloc>(
+        create: (context) =>
+            PokemonBloc(PokemonRepository())..add(LoadPokemonEvent())),
+  ], child: const Pokedex()));
 }
 
 class Pokedex extends StatelessWidget {
