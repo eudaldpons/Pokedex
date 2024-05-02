@@ -25,12 +25,12 @@ Se han añadido widgets de carga y de error para proporcionar una mejor experien
 
 A continuación, se muestran algunas capturas de pantalla de la aplicación:
 
-1. ![Captura de Pantalla 1](assets/images/1.png)
-2. ![Captura de Pantalla 2](assets/images/2.png)
-3. ![Captura de Pantalla 3](assets/images/3.png)
-4. ![Captura de Pantalla 4](assets/images/4.png)
-5. ![Captura de Pantalla 5](assets/images/5.png)
-6. ![Captura de Pantalla 6](assets/images/6.png)
+1. <img src="assets/images/1.png" alt="Captura de Pantalla 1" width="30%">
+2. <img src="assets/images/2.png" alt="Captura de Pantalla 2" width="30%">
+3. <img src="assets/images/3.png" alt="Captura de Pantalla 3" width="30%">
+4. <img src="assets/images/4.png" alt="Captura de Pantalla 4" width="30%">
+5. <img src="assets/images/5.png" alt="Captura de Pantalla 5" width="30%">
+6. <img src="assets/images/6.png" alt="Captura de Pantalla 6" width="30%">
 7. ![Captura de Pantalla Web 1](assets/images/1_web.png)
 8. ![Captura de Pantalla Web 2](assets/images/2_web.png)
 9. ![Captura de Pantalla Web 3](assets/images/3_web.png)
