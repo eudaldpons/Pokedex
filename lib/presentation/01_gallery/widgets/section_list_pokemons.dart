@@ -4,7 +4,7 @@ import 'package:flutter_pokedex/data/custom_search_delegate.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/style/app_spacing.dart';
 import 'package:flutter_pokedex/style/app_styles.dart';
-import 'package:flutter_pokedex/widgets/pokemon_card.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/pokemon_card.dart';
 
 class SectionListPokemons extends StatefulWidget {
   const SectionListPokemons({super.key, required this.pokemonList});

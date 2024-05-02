@@ -5,11 +5,11 @@ import 'package:flutter_pokedex/blocs/app_blocs.dart';
 import 'package:flutter_pokedex/blocs/app_states.dart';
 import 'package:flutter_pokedex/constants/app_strings.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
-import 'package:flutter_pokedex/screens/01_gallery/section_list_pokemons.dart';
-import 'package:flutter_pokedex/screens/01_gallery/section_near_pokemons.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/section_list_pokemons.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/section_near_pokemons.dart';
 import 'package:flutter_pokedex/style/app_styles.dart';
-import 'package:flutter_pokedex/widgets/error_widget.dart';
-import 'package:flutter_pokedex/widgets/loading_widget.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/error_widget.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 
 class PokedexGalleryScreen extends StatelessWidget {

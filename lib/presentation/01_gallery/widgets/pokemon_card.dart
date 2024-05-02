@@ -25,7 +25,7 @@ class PokemonCard extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.only(top: 80),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF3B4CCA),
+                        color: const Color.fromARGB(255, 41, 53, 141),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Column(
@@ -81,7 +81,7 @@ class PokemonCard extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Column(

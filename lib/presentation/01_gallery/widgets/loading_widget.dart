@@ -35,20 +35,22 @@ class _LoadingWidgetState extends State<LoadingWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 50),
-      child: AnimatedBuilder(
-        animation: _animation,
-        builder: (context, child) {
-          return Transform.rotate(
-            angle: _animation.value * 2 * 3.14159,
-            child: Image.asset(
-              'assets/images/poke.png',
-              width: 200,
-              color: const Color.fromARGB(255, 196, 196, 196),
-            ),
-          );
-        },
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 50),
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Transform.rotate(
+              angle: _animation.value * 2 * 3.14159,
+              child: Image.asset(
+                'assets/images/poke.png',
+                width: 200,
+                color: const Color.fromARGB(255, 196, 196, 196),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pokedex/blocs/theme/cubit/theme_cubit.dart';
 import 'package:flutter_pokedex/constants/app_strings.dart';
 import 'package:flutter_pokedex/data/storage_controller.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
@@ -29,7 +31,8 @@ class _ButonCaptureDeletePokemonState
     if (_isCaptured) {
       return GestureDetector(
         onTap: () async {
-          await StorageController.deletePokemon(widget.pokemon);
+          var newTheme = StorageController.deletePokemon(widget.pokemon);
+          context.read<ThemeCubit>().changeTheme(newTheme);
           setState(() {
             _isCaptured = false;
           });
@@ -48,8 +51,9 @@ class _ButonCaptureDeletePokemonState
       );
     } else {
       return GestureDetector(
-        onTap: () async {
-          await StorageController.capturePokemon(widget.pokemon);
+        onTap: () {
+          var newTheme = StorageController.capturePokemon(widget.pokemon);
+          context.read<ThemeCubit>().changeTheme(newTheme);
           setState(() {
             _isCaptured = true;
           });

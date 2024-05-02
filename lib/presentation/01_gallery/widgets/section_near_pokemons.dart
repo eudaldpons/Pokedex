@@ -5,7 +5,7 @@ import 'package:flutter_pokedex/constants/app_strings.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/style/app_spacing.dart';
 import 'package:flutter_pokedex/style/app_styles.dart';
-import 'package:flutter_pokedex/widgets/pokemon_near.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/widgets/pokemon_near.dart';
 
 class SectionNearPokemons extends StatelessWidget {
   const SectionNearPokemons({super.key, required this.pokemonList});

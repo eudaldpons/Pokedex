@@ -4,8 +4,8 @@ import 'package:flutter_pokedex/data/storage_controller.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:flutter_pokedex/style/app_spacing.dart';
 import 'package:flutter_pokedex/style/app_styles.dart';
-import 'package:flutter_pokedex/widgets/pokemon_captured.dart';
-import 'package:flutter_pokedex/widgets/pokemon_not_captured.dart';
+import 'package:flutter_pokedex/presentation/02_captured/widgets/pokemon_captured.dart';
+import 'package:flutter_pokedex/presentation/02_captured/widgets/pokemon_not_captured.dart';
 import 'package:go_router/go_router.dart';
 
 class CapturedScreen extends StatefulWidget {

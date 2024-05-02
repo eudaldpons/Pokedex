@@ -1,32 +1,28 @@
 import 'dart:math';
-
-import 'package:flutter_pokedex/blocs/theme/cubit/theme_cubit.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
 import 'package:hive/hive.dart';
 
 class StorageController {
   static const _boxName = 'captured_pokemon';
 
-  static dynamic capturePokemon(Pokemon pokemon) {
+  static String capturePokemon(Pokemon pokemon) {
     try {
       var box = Hive.box<Pokemon>(_boxName);
       box.put(pokemon.id, pokemon);
-      ThemeCubit().changeTheme(getMostCapturedType());
+      return getMostCapturedType();
     } catch (e) {
-      return e;
+      return 'default';
     }
-    return;
   }
 
-  static dynamic deletePokemon(Pokemon pokemon) {
+  static String deletePokemon(Pokemon pokemon) {
     try {
       var box = Hive.box<Pokemon>(_boxName);
       box.delete(pokemon.id);
-      ThemeCubit().changeTheme(getMostCapturedType());
+      return getMostCapturedType();
     } catch (e) {
-      return e;
+      return 'default';
     }
-    return;
   }
 
   static bool isCaptured(Pokemon pokemonTmp) {

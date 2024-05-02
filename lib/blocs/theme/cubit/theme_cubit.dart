@@ -5,7 +5,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 class ThemeCubit extends HydratedCubit<ThemeData> {
   ThemeCubit() : super(AppTheme.defaultTheme);
 
-  final ThemeData _theme = AppTheme.defaultTheme;
+  ThemeData _theme = AppTheme.defaultTheme;
 
   ThemeData get theme => _theme;
 
@@ -20,7 +20,8 @@ class ThemeCubit extends HydratedCubit<ThemeData> {
   }
 
   void changeTheme(String themeString) {
-    emit((getThemeFromString(themeString)));
+    _theme = getThemeFromString(themeString);
+    emit(_theme);
   }
 
   ThemeData getThemeFromString(String theme) {

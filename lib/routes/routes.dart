@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/models/pokemon.dart';
-import 'package:flutter_pokedex/screens/01_gallery/gallery.dart';
-import 'package:flutter_pokedex/screens/02_captured/captured.dart';
-import 'package:flutter_pokedex/screens/pokemon_details.dart';
+import 'package:flutter_pokedex/presentation/01_gallery/gallery.dart';
+import 'package:flutter_pokedex/presentation/02_captured/captured.dart';
+import 'package:flutter_pokedex/presentation/03_pokemon_details/pokemon_details.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {
